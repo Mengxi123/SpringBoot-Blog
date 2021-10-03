@@ -1,0 +1,110 @@
+/*---margin外边距属性--*/
+.m-margin-tb-tiny {
+    margin-top: 0.3em !important;
+    margin-bottom: 0.3em !important;
+}
+.m-margin-top-small {
+    margin-top: 0.5em !important;
+    margin-bottom: 0.5em !important;
+}
+.m-margin-top {
+    margin-top: 1em !important;
+    margin-bottom: 1em !important;
+}
+.m-margin-top-large {
+    margin-top: 2em !important;
+    margin-bottom: 2em !important;
+}
+/*padding 内边距属性*/
+.m-padded-mini {
+    padding: 0.2em !important;
+}
+.m-padded-tiny {
+    padding: 0.3em !important;
+}
+.m-padded-tb-mini {
+    padding: 0.2em !important;
+    padding-bottom: 0.2em !important;
+}
+.m-padded-tb-tiny {
+    padding: 0.3em !important;
+    padding-bottom: 0.3em !important;
+}
+.m-padded-tb-small {
+    padding: 0.5em !important;
+    padding-bottom: 0.5em !important;
+}
+.m-padded-tb {
+    padding: 1em !important;
+    padding-bottom: 1em !important;
+}
+.m-padded-tb-large {
+    padding: 2em !important;
+    padding-bottom: 2em !important;
+}
+.m-padded-tb-big {
+    padding: 3em !important;
+    padding-bottom: 3em !important;
+}
+.m-padded-tb-huge {
+    padding: 4em !important;
+    padding-bottom: 4em !important;
+}
+.m-padded-tb-massive {
+    padding: 5em !important;
+    padding-bottom: 5em !important;
+}
+
+/*--------文本设置--------*/
+.m-text {
+    font-weight: 300 !important;
+    letter-spacing: 1px !important;
+    letter-spacing: 1px !important;
+}
+/*字体细一点*/
+.m-text-thin {
+    font-weight: 300 !important;
+}
+/*字间距*/
+.m-text-spaced {
+    letter-spacing: 1px !important;
+}
+/*行间距*/
+.m-text-lined {
+    line-height: 1.8;
+}
+/*透明度设置*/
+.m-opacity-min {
+    opacity: 0.8 !important;
+}
+/*-----显示属性--------*/
+.m-inline-block {
+    display: inline-block !important;
+}
+.m-container {
+    max-width: 72em !important;
+    margin: auto !important;
+}
+/*颜色*/
+.m-black {
+    color: #333 !important;
+}
+/*位置*/
+.m-right-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+/**/
+.m-mobile-show {
+    display: none !important;
+}
+
+@media screen and (max-width: 768px){
+    .m-mobile-hide {
+        display: none !important;
+    }
+    .m-mobile-show {
+        display: block !important;
+    }
+}
