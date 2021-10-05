@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--移动端预览设置-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <!--引入自定义css样式-->
+    <link rel="stylesheet" href="./static/css/me.css">
+    <title>博客详情</title>
+</head>
+<body>
+
+
+    <!--导航部分 - 使用现成的导航组件-->
+    <nav class="ui inverted attached segment m-padded-tb-mini">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <h2 class="ui teal header item">Blog</h2>
+                <!--m-item 用于js获取对象的名称-->
+                <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
+                <div class="right item m-mobile-hide">
+                    <div class="ui icon inverted transparent input">
+                        <input type="text" placeholder="Search ...">
+                        <i class="search link icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--menu toggle是js获取对象的名称-->
+        <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+
+
+
+    <!--中间内容-->
+    <div class="m-container-small m-padded-tb-big">
+        <div class="container">
+            <!--头部-->
+            <div class="ui top attached segment">
+                <div class="ui horizontal link list">
+                    <div class="item">
+                        <img src="https://unsplash.it/100/100?image=1005" alt="" class="ui avatar image">
+                        <div class="content"><a href="#" class="header">梦溪</a></div>
+                    </div>
+                    <div class="item">
+                        <i class="calendar icon"></i> 2021-10-01
+                    </div>
+                    <div class="item">
+                        <i class="eye icon"></i> 2321
+                    </div>
+                </div>
+            </div>
+            <!--图片区域-->
+            <div class="ui attached segment">
+                <img src="https://unsplash.it/800/400?image=1005" alt="" class="ui fluid rounded image">
+            </div>
+            <!--内容区域-->
+            <div class="ui attached padded segment">
+                <div class="ui right aligned basic segment">
+                    <div class="ui orange basic label">原创</div>
+                </div>
+                <!--文章标题-->
+                <h2 class="ui center aligned header">如果龙真实存在，有没有物理和生物学的合理性解释？</h2>
+                <br>
+                <!--文章内容-->
+                <div id="content" class="m-padded-lr-responsive m-padded-tb-large">
+                    <ul>
+                        <li>无论任何渠道中的中国龙形象，空气动力外形都严重渣渣，因此龙能够飞行的可能性只有一个：推进力够强。</li><li>龙的形象通常伴随雷电和暴雨，而不是尾巴上一团火球，因此龙并不是类似火箭一样，通过化学反应产生高温燃气喷射，而是更类似飞机，从嘴吞入大量空气，在长长的身躯里逐级压缩，再从身体后部喷出。这就是为什么绝大多数龙的形象都有较庞大的头部，而且大多是张着大嘴。</li>
+                        <li>龙的身躯庞大，所以需要的推力非常强，后部喷出的气体压强可能达到十个大气压以上，因此高压气体膨胀的时候会发出轰鸣，这就是龙的出现经常伴随雷声的原因。</li>
+                        <li>由于气体压缩时温度会升高，因此龙体内有一套发达的冷却系统，但是这套冷却系统并不支持长时间工作，所以我们有时会看到龙喷火。</li>
+                        <li>张开鳞片表示这套散热系统正在全负荷工作。<br></li>
+                        <li>温度较高的空气流经冷却系统时，会产生冷凝水。龙需要经常将冷却水排出体外，这就是龙能够降雨的原因。</li><li>强大的推进力需要大量食物的支撑，龙能够轻易杀死绝大多数大型怪兽，但是由于营养级的金字塔结构，大型生物的数量远远不足以供给巨龙食用，因此龙的主要食物来源还是数量庞大的鱼类。</li>
+                        <li>龙角能够产生一种生物电信号，鱼类特别是鲤鱼很容易被这种信号吸引而大量聚集。龙一次可以吞食上吨鱼类</li><li>至于腥味……想想他是怎么推进的……<br></li>
+                        <li>龙能够晋身神兽，以上能力显然是远远不够的。龙最强大之处在于可以利用核能，在一些古老的山脉中，会形成天然富集的钋-210，龙可以利用龙须探测到这些钋，并掀开整个山脉寻找，这就是为什么传说中的龙能够移山填海。</li><li>钋-210的放射性强大到能够令空气电离，发出幽幽蓝光，这就是为什么很多壁画中会出现龙追逐一颗发光的珠子的形象。</li></ul>
+                    <img src="https://pic3.zhimg.com/80/9b5fc65d2f017f12da2368db839cfbde_720w.jpg?source=1940ef5c" class="ui centered image" data-original="https://pica.zhimg.com/9b5fc65d2f017f12da2368db839cfbde_r.jpg?source=1940ef5c" data-actualsrc="https://pic3.zhimg.com/50/9b5fc65d2f017f12da2368db839cfbde_720w.jpg?source=1940ef5c" width="400">
+                    <p>编不下去了，土豪金镇场……吃饭</p>
+                </div>
+                <!--标签-->
+                <div class="m-padded-lr-responsive">
+                    <div class="ui basic teal left pointing label">小故事</div>
+                </div>
+                <!--赞赏功能-->
+                <div class="ui center aligned segment basic">
+                    <button id="payButton" class="ui orange basic circular button">赞赏</button>
+                </div>
+                <!--点击赞赏出现二维码-->
+                <!--获取对象名称 payQR popup-->
+                <div class="ui payQR flowing popup transition hidden">
+                    <div class="ui orange basic label">
+                        <div class="ui images" style="font-size: inherit !important;">
+                            <div class="image">
+                                <img src="./static/images/wechat.jpg" alt="" class="ui rounded bordered image" style="width: 120px">
+                                <div>支付宝</div>
+                            </div>
+                            <div class="image">
+                                <img src="./static/images/wechat.jpg" alt="" class="ui rounded bordered image" style="width: 120px">
+                                <div>微信</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--博客信息说明-->
+            <div class="ui attached positive message">
+                <div class="ui middle aligned grid">
+                    <div class="eleven wide column">
+                        <ui class="list">
+                            <li>作者：梦溪（联系作者）</li>
+                            <li>发表时间：2021-10-01 09:08</li>
+                            <li>版权声明：自由转载-非商用-非衍生-保持署名 (创意共享3.0许可证)</li>
+                            <li>公众号转载：请在文末添加作者公众号二维码</li>
+                        </ui>
+                    </div>
+                    <div class="five wide column">
+                        <img src="./static/images/wechat.jpg" alt="" class="ui right floated rounded bordered image" style="width: 110px">
+                    </div>
+                </div>
+            </div>
+            <!--留言区域-->
+            <div class="ui bottom attached segment">
+                <!--留言列表-->
+                <div class="ui teal segment">
+                    <!--使用留言组件-->
+                    <div class="ui threaded comments">
+                        <h3 class="ui dividing header">Comments</h3>
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="https://unsplash.it/100/100?image=1005">
+                            </a>
+                            <div class="content">
+                                <a class="author">Matt</a>
+                                <div class="metadata">
+                                    <span class="date">Today at 5:42PM</span>
+                                </div>
+                                <div class="text">
+                                    How artistic!
+                                </div>
+                                <div class="actions">
+                                    <a class="Reply">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="https://unsplash.it/100/100?image=1005">
+                            </a>
+                            <div class="content">
+                                <a class="author">Elliot Fu</a>
+                                <div class="metadata">
+                                    <span class="date">Yesterday at 12:30AM</span>
+                                </div>
+                                <div class="text">
+                                    <p>This has been very useful for my research. Thanks as well!</p>
+                                </div>
+                                <div class="actions">
+                                    <a class="Reply">回复</a>
+                                </div>
+                            </div>
+                            <div class="comments">
+                                <div class="comment">
+                                    <a class="avatar">
+                                        <img src="https://unsplash.it/100/100?image=1005">
+                                    </a>
+                                    <div class="content">
+                                        <a class="author">Jenny Hess</a>
+                                        <div class="metadata">
+                                            <span class="date">Just now</span>
+                                        </div>
+                                        <div class="text">
+                                            Elliot you are always so right :)
+                                        </div>
+                                        <div class="actions">
+                                            <a class="Reply">回复</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="https://unsplash.it/100/100?image=1005">
+                            </a>
+                            <div class="content">
+                                <a class="author">Joe Henderson</a>
+                                <div class="metadata">
+                                    <span class="date">5 days ago</span>
+                                </div>
+                                <div class="text">
+                                    Dude, this is awesome. Thanks so much
+                                </div>
+                                <div class="actions">
+                                    <a class="Reply">回复</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--提交留言-->
+                <div class="ui form">
+                    <div class="field">
+                        <textarea name="content" placeholder="请输入评论信息..."></textarea>
+                    </div>
+                    <div class="fields">
+                        <div class="field m-mobile-wide m-margin-bottom-small">
+                            <div class="ui left icon input">
+                                <i class="user icon"></i>
+                                <input type="text" name="nickname" placeholder="姓名">
+                            </div>
+                        </div>
+                        <div class="field m-mobile-wide m-margin-bottom-small">
+                            <div class="ui left icon input">
+                                <i class="mail icon"></i>
+                                <input type="text" name="email" placeholder="邮箱">
+                            </div>
+                        </div>
+                        <div class="field m-mobile-wide m-margin-bottom-small">
+                            <button class="ui teal button m-mobile-wide"><i class="edit icon"></i>发布</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <!--底部footer-->
+    <footer class="ui inverted vertical segment m-padded-tb-massive">
+        <div class="ui center aligned container">
+            <!--整个底部布局分为四份：3、3、3、7 - 总共为16份，class属性-divided：每一份之间加分割线-->
+            <div class="ui inverted divided stackable grid">
+                 <div class="three wide column">
+                     <div class="ui inverted link list">
+                         <div class="item">
+                             <img src="./static/images/wechat.jpg" class="ui rounded image" alt="" style="width: 110px">
+                         </div>
+                     </div>
+                 </div>
+                 <div class="three wide column">
+                     <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
+                     <div class="ui inverted link list">
+                         <a href="#" class="item">用户故事 (User Story)</a>
+                         <a href="#" class="item">用户故事 (User Story)</a>
+                         <a href="#" class="item">用户故事 (User Story)</a>
+                     </div>
+                 </div>
+                 <div class="three wide column">
+                     <h4 class="ui inverted header m-text-thin m-text-spaced">联系我</h4>
+                     <div class="ui inverted link list">
+                         <a href="#" class="item">Email:Hui_mengxi@163.com</a>
+                         <a href="#" class="item">QQ:1759971088</a>
+                 </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced">Blog</h4>
+                    <p class="m-text-thin m-text-spaced m-opacity-min">这是我的个人博客、会分享关于编程、写作、思考相关的内容，希望可以给来到这儿的人有所帮助...</p>
+                </div>
+            </div>
+            <!--下面的横线-->
+            <div class="ui inverted section divider"></div>
+            <p class="m-text-thin m-text-spaced m-opacity-tiny">Mengxi Blog © 2021 Mengxi Designed by Mengxi</p>
+        </div>
+    </footer>
+
+<!---CDN方式引入jquery-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<!--Semantic UI官网 Single Components - CDN Releases-->
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <script>
+        $('.menu.toggle').click(function () {
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
+
+        $('#payButton').popup({
+            popup : $('.payQR.popup'),
+            on : 'click',
+            position : 'bottom center'
+        });
+    </script>
+</body>
+</html>
