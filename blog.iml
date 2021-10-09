@@ -14,7 +14,9 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="blog" value="64bc403d-212d-470f-8f6f-fcf2262f8bec" />
+        </datasource-mapping>
         <naming-strategy-map />
       </configuration>
     </facet>
