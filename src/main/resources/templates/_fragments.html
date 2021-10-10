@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--前端thymeleaf模板抽取-->
+<head th:fragment="head(title)">
+    <meta charset="UTF-8">
+    <!--移动端预览设置-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <!--引入内容排序的css样式-->
+    <link rel="stylesheet" href="../static/css/typo.css" th:href="@{/css/typo.css}">
+    <!--引入动画插件css样式-->
+    <link rel="stylesheet" href="../static/css/animate.css" th:href="@{/css/animate.css}">
+    <!--引入代码高亮css样式-->
+    <link rel="stylesheet" href="../static/lib/prism/prism.css" th:href="@{/lib/prism/prism.css}">
+    <!--引入目录生成css样式-->
+    <link rel="stylesheet" href="../static/lib/tocbot/tocbot.css" th:href="@{/lib/tocbot/tocbot.css}">
+    <!--引入自定义css样式-->
+    <link rel="stylesheet" href="../static/css/me.css" th:href="@{/css/me.css}">
+    <title th:replace="${title}">博客详情</title>
+</head>
+<body>
+
+<!--导航部分 - 使用现成的导航组件-->
+<nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu">
+            <h2 class="ui teal header item">Blog</h2>
+            <!--m-item 用于js获取对象的名称-->
+            <a href="#" class="m-item item m-mobile-hide" th:classappend="${n==1} ? 'active'"><i class="home icon"></i>首页</a>
+            <a href="#" class="m-item item m-mobile-hide" th:classappend="${n==2} ? 'active'"><i class="idea icon"></i>分类</a>
+            <a href="#" class="m-item item m-mobile-hide" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i>标签</a>
+            <a href="#" class="m-item item m-mobile-hide" th:classappend="${n==4} ? 'active'"><i class="clone icon"></i>归档</a>
+            <a href="#" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="info icon"></i>关于我</a>
+            <div class="right item m-mobile-hide">
+                <div class="ui icon inverted transparent input">
+                    <input type="text" placeholder="Search ...">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--menu toggle是js获取对象的名称-->
+    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<!--底部footer-->
+<footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive">
+    <div class="ui center aligned container">
+        <!--整个底部布局分为四份：3、3、3、7 - 总共为16份，class属性-divided：每一份之间加分割线-->
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/images/wechat.jpg"  th:src="@{/images/wechat.jpg}" class="ui rounded image" alt="" style="width: 110px">
+                    </div>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事 (User Story)</a>
+                    <a href="#" class="item">用户故事 (User Story)</a>
+                    <a href="#" class="item">用户故事 (User Story)</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">联系我</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">Email:Hui_mengxi@163.com</a>
+                    <a href="#" class="item">QQ:1759971088</a>
+                </div>
+            </div>
+            <div class="seven wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">Blog</h4>
+                <p class="m-text-thin m-text-spaced m-opacity-min">这是我的个人博客、会分享关于编程、写作、思考相关的内容，希望可以给来到这儿的人有所帮助...</p>
+            </div>
+        </div>
+        <!--下面的横线-->
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">Mengxi Blog © 2021 Mengxi Designed by Mengxi</p>
+    </div>
+</footer>
+
+<th:block th:fragment="script">
+<!---CDN方式引入jquery-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<!--Semantic UI官网 Single Components - CDN Releases-->
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<!--引入平滑滚动js-->
+<script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.3/jquery.scrollTo.min.js"></script>
+<!--引入代码高亮js-->
+<script src="../static/lib/prism/prism.js" th:src="@{/lib/prism/prism.js}"></script>
+<!--引入目录生成js-->
+<script src="../static/lib/tocbot/tocbot.min.js" th:src="@{/lib/tocbot/tocbot.min.js}"></script>
+<!--引入二维码自动生成js-->
+<script src="../static/lib/qrcode/qrcode.min.js" th:src="@{/lib/qrcode/qrcode.min.js}"></script>
+<!--引入滚动侦测js-->
+<script src="../static/lib/waypoints/jquery.waypoints.min.js" th:src="@{/lib/waypoints/jquery.waypoints.min.js}"></script>
+</th:block>
+
+
+</body>
+</html>

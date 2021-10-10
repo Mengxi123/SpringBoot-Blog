@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 拦截所有标注有Controller注解的控制器
+ * @ControllerAdvice 表明该类是一个拦截类：拦截所有标注有Controller注解的控制器
  * @author MengXi
  */
 @ControllerAdvice
@@ -21,6 +21,9 @@ public class ControllerExceptionHandler {
      */
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    /**
+     * @ExceptionHandler  异常处理器
+     */
     @ExceptionHandler(Exception.class)
     public ModelAndView exceptionHandler(HttpServletRequest request, Exception e) throws Exception {
         //记录日志
