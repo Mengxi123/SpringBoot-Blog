@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head th:replace="_fragments :: head(~{::title}>
     <meta charset="UTF-8">
     <!--移动端预览设置-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,13 +13,13 @@
 
 
     <!--导航部分 - 使用现成的导航组件-->
-    <nav class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+    <nav th:replace="_fragments :: menu(2)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
         <div class="ui container">
             <div class="ui inverted secondary stackable menu">
                 <h2 class="ui teal header item">Blog</h2>
                 <!--m-item 用于js获取对象的名称-->
                 <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
-                <a href="#" class="active m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
                 <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
                 <a href="#" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
                 <a href="#" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
@@ -300,7 +300,7 @@
     <br>
 
     <!--底部footer-->
-    <footer class="ui inverted vertical segment m-padded-tb-massive">
+    <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
         <div class="ui center aligned container">
             <!--整个底部布局分为四份：3、3、3、7 - 总共为16份，class属性-divided：每一份之间加分割线-->
             <div class="ui inverted divided stackable grid">
@@ -337,10 +337,12 @@
         </div>
     </footer>
 
+    <!--/*/<th:block th:replace="_fragments :: script">/*/-->
 <!---CDN方式引入jquery-->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
 <!--Semantic UI官网 Single Components - CDN Releases-->
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    <!--/*/</th:block>/*/-->
     <script>
         $('.menu.toggle').click(function () {
             $('.m-item').toggleClass('m-mobile-hide');
