@@ -7,13 +7,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
     <!--引入自定义css样式-->
     <link rel="stylesheet" href="../../static/css/me.css">
-    <title>博客管理</title>
+    <!--引入markdown插件的css-->
+    <link rel="stylesheet" href="../../static/lib/editormd/css/editormd.min.css">
+    <title>分类新增</title>
 </head>
 <body>
 
 
     <!--导航部分 - 使用现成的导航组件-->
-    <nav th:replace="admin/_fragments :: menu(1)"  class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+    <nav th:replace="admin/_fragments :: menu(2)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
         <div class="ui container">
             <div class="ui inverted secondary stackable menu">
                 <h2 class="ui teal header item">管理后台</h2>
@@ -45,8 +47,8 @@
     <div class="ui attached pointing menu">
         <div class="ui container">
             <div class="right menu">
-                <a href="#" class="item">发布</a>
-                <a href="#" class="active teal item">列表</a>
+                <a href="#" class="active teal item">发布</a>
+                <a href="#" class="item">列表</a>
             </div>
         </div>
     </div>
@@ -56,80 +58,43 @@
     <!--中间内容-->
     <div class="m-container-small m-padded-tb-big">
         <div class="ui container">
-            <form action="#" method="post" class="ui segment form">
-                <div class="inline fields">
-                    <div class="field">
-                        <input type="text" name="title" placeholder="标题">
-                    </div>
-                    <div class="field">
-                        <div class="ui selection dropdown">
-                            <input type="hidden" name="type">
-                            <i class="dropdown icon"></i>
-                            <div class="default text">分类</div>
-                            <div class="menu">
-                                <div class="item" data-value="1">错误日志</div>
-                                <div class="item" data-value="1">开发者手册</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <div class="ui checkbox">
-                            <input type="checkbox" id="recommend" name="recommend">
-                            <label for="recommend">推荐</label>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <button class="ui mini teal basic button"><i class="search icon"></i>搜索</button>
+            <form action="#" method="post" th:action="@{/admin/type}" th:object="${type}" class="ui form">
+                <div class="required field">
+                    <div class="ui left labeled input">
+                        <label class="ui teal basic label">名称</label>
+                        <input type="text" name="name" placeholder="分类名称" th:value="*{name}">
                     </div>
                 </div>
+                <div class="ui error message"></div>
+                <!--/*/
+                 <div class="ui negative message" th:if="${#fields.hasErrors('name')}"  >
+                   <i class="close icon"></i>
+                   <div class="header">验证失败</div>
+                   <p th:errors="*{name}">提交信息不符合规则</p>
+                 </div>
+                  /*/-->
+                <div class="ui right aligned container">
+                    <button type="button" class="ui basic button" onclick="window.history.go(-1)">返回</button>
+                    <button class="ui teal submit button">提交</button>
+                </div>
+
             </form>
-
-            <table class="ui celled table">
-                <thead>
-                <tr>
-                    <th></th>
-                    <th>标题</th>
-                    <th>类型</th>
-                    <th>推荐</th>
-                    <th>更新时间</th>
-                    <th>操作</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>刻意联系清单</td>
-                    <td>认知升级</td>
-                    <td>是</td>
-                    <td>2021-10-01 00:00</td>
-                    <td>
-                        <a href="#" class="ui mini teal basic button">编辑</a>
-                        <a href="#" class="ui mini red basic button">删除</a>
-                    </td>
-                </tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                    <th colspan="6">
-                        <div class="ui mini floated pagination menu">
-                            <a class="icon item">上一页</a>
-                            <a class="icon item">下一页</a>
-                        </div>
-                        <a href="#" class="ui mini right floated teal basic button">新增</a>
-                    </th>
-                </tr>
-                </tfoot>
-            </table>
-
         </div>
     </div>
 
 
     <br>
     <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
 
     <!--底部footer-->
-    <footer th:replace="admin/_fragments :: footer"  class="ui inverted vertical segment m-padded-tb-massive">
+    <footer th:replace="admin/_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
         <div class="ui center aligned container">
             <!--整个底部布局分为四份：3、3、3、7 - 总共为16份，class属性-divided：每一份之间加分割线-->
             <div class="ui inverted divided stackable grid">
@@ -172,14 +137,27 @@
 <!--Semantic UI官网 Single Components - CDN Releases-->
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 <!--/*/</th:block>/*/-->
-
     <script>
+
         $('.menu.toggle').click(function () {
             $('.m-item').toggleClass('m-mobile-hide');
         });
 
         $('.ui.dropdown').dropdown({
             on : 'hover'
+        });
+
+        /*--表单验证--*/
+        $('.ui.form').form({
+            fields : {
+                name : {
+                    identifier : 'name11',
+                    rules : [{
+                        type : 'empty',
+                        prompt : '请输入分类名称'
+                    }]
+                }
+            }
         });
     </script>
 </body>

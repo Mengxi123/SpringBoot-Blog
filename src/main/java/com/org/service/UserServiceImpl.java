@@ -2,6 +2,7 @@ package com.org.service;
 
 import com.org.dao.UserRepository;
 import com.org.po.User;
+import com.org.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,8 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User checkUser(String username, String password) {
-        User user = userRepository.findByUsernameAndPassword(username, password);
+        //对密码使用md5加密
+        User user = userRepository.findByUsernameAndPassword(username, MD5Utils.code(password));
         return user;
     }
 }
