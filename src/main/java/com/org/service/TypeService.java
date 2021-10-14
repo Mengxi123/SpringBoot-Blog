@@ -12,6 +12,9 @@ public interface TypeService {
 
     Type getType(Long id);
 
+    //通过名称查询Type
+    Type getTypeByName(String name);
+
     Page<Type> listType(Pageable pageable);
 
     Type updateType(Long id, Type type);
