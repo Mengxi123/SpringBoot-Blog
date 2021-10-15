@@ -32,8 +32,8 @@
             <div class="right m-item m-mobile-hide menu">
                 <div class="ui dropdown item">
                     <div class="text">
-                        <img class="ui avatar image" src="https://unsplash.it/100/100?image=1005">
-                        梦溪
+                        <img class="ui avatar image" src="https://unsplash.it/100/100?image=1005" th:src="@{${session.user.avatar}}">
+                        <span th:text="${session.user.nickname}">梦溪</span>
                     </div>
                     <i class="dropdown icon"></i>
                     <div class="menu">
