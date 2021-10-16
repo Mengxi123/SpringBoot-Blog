@@ -10,6 +10,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author Create by MengXi on 2021/10/14 17:16.
@@ -43,6 +45,33 @@ public class TagServiceImpl implements TagService{
     public Page<Tag> listTag(Pageable pageable) {
         return tagRepository.findAll(pageable);
     }
+
+    @Override
+    public List<Tag> listTag() {
+        return tagRepository.findAll();
+    }
+
+    @Override
+    public List<Tag> listTag(String ids) { //1,2,3
+        return tagRepository.findAllById(convertToList(ids));
+    }
+
+    /**
+     * 将上面的字符串转换成一个数组
+     * @param ids
+     * @return
+     */
+    private List<Long> convertToList(String ids) {
+        List<Long> list = new ArrayList<>();
+        if (!"".equals(ids) && ids != null) {
+            String[] idarray = ids.split(",");
+            for (int i=0; i < idarray.length;i++) {
+                list.add(new Long(idarray[i]));
+            }
+        }
+        return list;
+    }
+
 
     @Transactional
     @Override

@@ -15,6 +15,8 @@ import java.util.List;
  * @Id    注解表明是表的自增主键，一个实体里只能又一个。
  * @GeneratedValue 指定自增主键的自增策略，GenerationType有四个值：TABLE、SEQUENCE、IDENTITY、AUTO，默认的策略就是AUTO。
  *                  单纯使用注解@GeneratedValue,用springboot自动生成Mysql表时，多生成了一张hibernate_sequence表
+ * @Transient  该字段不用保存到数据库中
+ *
  *
  * @Temporal(TemporalType.TIMESTAMP)   时间格式化hibernate jpa注解, 得到yyyy-mm-dd HH24:mi:ss格式的数据
  * @ManyToOne  指定与另一个实体类的单值关联,多对一
@@ -23,6 +25,8 @@ import java.util.List;
  *              String mappedBy : 指定拥有关系的字段
  *              CascadeType[] cascade(): 级联新增，对里面新增的对象，同时也会保存到数据库当中
  *
+ * @Basic (fetch = FetchType.LAZY)  使用时才加载，不使用不加载
+ * @Lob  指定为大字段
  */
 
 @Entity
@@ -32,6 +36,8 @@ public class Blog {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
+    @Basic(fetch = FetchType.LAZY)
+    @Lob
     private String content;
     private String firstPicture;
     private String flag;
@@ -57,6 +63,9 @@ public class Blog {
 
     @ManyToOne
     private Comment comment;
+
+    @Transient
+    private String tagIds;
 
     public Blog() {
     }
@@ -195,6 +204,37 @@ public class Blog {
 
     public void setComment(Comment comment) {
         this.comment = comment;
+    }
+
+    public String getTagIds() {
+        return tagIds;
+    }
+
+    public void setTagIds(String tagIds) {
+        this.tagIds = tagIds;
+    }
+
+    public void init() {
+        this.tagIds = tagsToIds(this.getTags());
+    }
+
+    //1,2,3
+    private String tagsToIds(List<Tag> tags) {
+        if (!tags.isEmpty()) {
+            StringBuffer ids = new StringBuffer();
+            boolean flag = false;
+            for (Tag tag : tags) {
+                if (flag) {
+                    ids.append(",");
+                } else {
+                    flag = true;
+                }
+                ids.append(tag.getId());
+            }
+            return ids.toString();
+        } else {
+            return tagIds;
+        }
     }
 
     @Override
