@@ -1,9 +1,21 @@
 package com.org.web;
 
 import com.org.NotFoundException;
+import com.org.po.Type;
+import com.org.service.BlogService;
+import com.org.service.TagService;
+import com.org.service.TypeService;
+import com.org.vo.BlogQuery;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author MengXi
@@ -21,14 +33,39 @@ public class IndexController {
      * Restful风格的参数获取：url + 请求方式
      *          在url中使用占位符进行参数绑定，同时在方法中使用@PathVariable注解与占位符进行匹配,参数名称要一致。
      */
+
+    @Autowired
+    private BlogService blogService;
+
+    @Autowired
+    private TypeService typeService;
+
+    @Autowired
+    private TagService tagService;
+
+    /**
+     * 分页获取博客内容
+     * @param pageable
+     * @param model
+     * @return
+     */
     @GetMapping("/")
-    public String index() {
-//        int i = 1 / 0;
-//        String blog = null;
-//        if (blog == null) {
-//            throw new NotFoundException("博客不存在");
-//        }
+    public String index(@PageableDefault(size = 5, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable
+                        ,Model model) {
+        model.addAttribute("page", blogService.listBlog(pageable));
+        model.addAttribute("types", typeService.listTypeTop(6));
+        model.addAttribute("tags", tagService.listTagTop(10));
+        model.addAttribute("recommendBlogs", blogService.listRecommendBlogTop(8));
         return "index";
+    }
+
+    @PostMapping("/search")
+    public String search(@PageableDefault(size = 5, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable
+                         , @RequestParam String query, Model model) {
+        model.addAttribute("page", blogService.listBlog("%" + query + "%", pageable));
+        model.addAttribute("query", query);
+        return "search";
+
     }
 
     @GetMapping("/blog")

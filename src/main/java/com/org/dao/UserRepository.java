@@ -25,6 +25,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
  *          接口必须继承类型参数化为实体类型和实体类中的Id类型的Repository public interface UserRepository extends JpaRepository<T, ID>,
  *          T 需要类型化为实体类(Entity)User，ID需要实体类User中Id（我定义的Id类型是Long）的类型.
  *
+ *@Query 注解，自定义查询
+ *
  *
  */
 public interface UserRepository extends JpaRepository<User, Long> {
