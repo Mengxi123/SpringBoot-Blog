@@ -68,13 +68,9 @@ public class IndexController {
 
     }
 
-    @GetMapping("/blog")
-    public String blog() {
-//        int i = 1 / 0;
-//        String blog = null;
-//        if (blog == null) {
-//            throw new NotFoundException("博客不存在");
-//        }
+    @GetMapping("/blog/{id}")
+    public String blog(@PathVariable Long id, Model model) {
+        model.addAttribute("blog", blogService.getAndConvert(id));
         return "blog";
     }
 }

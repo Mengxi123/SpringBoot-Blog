@@ -4,6 +4,7 @@ import com.org.NotFoundException;
 import com.org.dao.BlogRepository;
 import com.org.po.Blog;
 import com.org.po.Type;
+import com.org.util.MarkdownUtils;
 import com.org.util.MyBeanUtils;
 import com.org.vo.BlogQuery;
 import org.springframework.beans.BeanUtils;
@@ -36,6 +37,25 @@ public class BlogServiceImpl implements BlogService{
     @Override
     public Blog getBlog(Long id) {
         return blogRepository.getById(id);
+    }
+
+    /**
+     * 获取博客转换为html格式
+     * @param id
+     * @return
+     */
+    @Override
+    public Blog getAndConvert(Long id) {
+        Blog blog = blogRepository.findById(id).orElse(null);
+        if (blog == null) {
+            throw new NotFoundException("该博客不存在");
+        }
+        //将content转换后的html存到一个新对象中，不改变数据库中的对象
+        Blog b = new Blog();
+        BeanUtils.copyProperties(blog, b);
+        String content = b.getContent();
+        b.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
+        return b;
     }
 
     /**
