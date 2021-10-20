@@ -1,5 +1,9 @@
 package com.org.po;
 
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.NestedConfigurationProperty;
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,6 +12,7 @@ import java.util.List;
 /**
  * @author Create by MengXi on 2021/10/11 17:08.
  */
+
 
 @Entity
 @Table(name = "t_comment")
@@ -18,24 +23,29 @@ public class Comment {
     private String nickname;
     private String email;
     private String content;
+
+
+   @NestedConfigurationProperty
     private String avatar;
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
 
-    @OneToMany(mappedBy = "comment")
-    private List<Blog> blogs = new ArrayList<>();
+    @ManyToOne
+    private Blog blog;
 
     /**
      * 一个评论对象可以有多个子类对象
      */
     @OneToMany(mappedBy = "parentComment")
-    private List<Comment> replayComments = new ArrayList<>();
+    private List<Comment> replyComments = new ArrayList<>();
 
     /**
      * 一个子类评论对象只能有一个父类对象
      */
     @ManyToOne
     private Comment parentComment;
+
+    private boolean adminComment;
 
     public Comment() {
     }
@@ -88,20 +98,20 @@ public class Comment {
         this.createTime = createTime;
     }
 
-    public List<Blog> getBlogs() {
-        return blogs;
+    public Blog getBlog() {
+        return blog;
     }
 
-    public void setBlogs(List<Blog> blogs) {
-        this.blogs = blogs;
+    public void setBlog(Blog blog) {
+        this.blog = blog;
     }
 
-    public List<Comment> getReplayComments() {
-        return replayComments;
+    public List<Comment> getReplyComments() {
+        return replyComments;
     }
 
-    public void setReplayComments(List<Comment> replayComments) {
-        this.replayComments = replayComments;
+    public void setReplyComments(List<Comment> replayComments) {
+        this.replyComments = replayComments;
     }
 
     public Comment getParentComment() {
@@ -110,6 +120,14 @@ public class Comment {
 
     public void setParentComment(Comment parentComment) {
         this.parentComment = parentComment;
+    }
+
+    public boolean isAdminComment() {
+        return adminComment;
+    }
+
+    public void setAdminComment(boolean adminComment) {
+        this.adminComment = adminComment;
     }
 
     @Override
@@ -121,6 +139,10 @@ public class Comment {
                 ", content='" + content + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", createTime=" + createTime +
+                ", blog=" + blog +
+                ", replyComments=" + replyComments +
+                ", parentComment=" + parentComment +
+                ", adminComment=" + adminComment +
                 '}';
     }
 }

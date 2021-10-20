@@ -44,6 +44,7 @@ public class BlogServiceImpl implements BlogService{
      * @param id
      * @return
      */
+    @Transactional
     @Override
     public Blog getAndConvert(Long id) {
         Blog blog = blogRepository.findById(id).orElse(null);
@@ -55,6 +56,8 @@ public class BlogServiceImpl implements BlogService{
         BeanUtils.copyProperties(blog, b);
         String content = b.getContent();
         b.setContent(MarkdownUtils.markdownToHtmlExtensions(content));
+        //观看次数+1
+        blogRepository.updateViews(id);
         return b;
     }
 
