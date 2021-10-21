@@ -40,7 +40,7 @@
 
 
     <!--中间内容-->
-    <div class="m-container m-padded-tb-big">
+    <div class="m-container m-padded-tb-big animated fadeIn">
         <div class="ui container">
             <!--stackable 自适应，适应手机端-->
             <div class="ui stackable grid">
@@ -128,12 +128,12 @@
         </div>
     </footer>
 
-    <!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
 <!---CDN方式引入jquery-->
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
 <!--Semantic UI官网 Single Components - CDN Releases-->
 <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-    <!--/*/</th:block>/*/-->
+<!--/*/</th:block>/*/-->
     <script>
         $('.menu.toggle').click(function () {
             $('.m-item').toggleClass('m-mobile-hide');
@@ -141,10 +141,8 @@
 
         $('.wechat').popup({
             popup : $('.wechat-qr'),
-            on : 'hover',
-            position : 'bottom center'
+            position: 'bottom center'
         });
-
         $('.qq').popup();
     </script>
 </body>

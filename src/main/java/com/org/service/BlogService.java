@@ -6,6 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Create by MengXi on 2021/10/15 16:14.
@@ -20,9 +21,19 @@ public interface BlogService {
 
     Page<Blog> listBlog(Pageable pageable);
 
+    Page<Blog> listBlog(Long tagId, Pageable pageable);
+
     Page<Blog> listBlog(String query, Pageable pageable);
 
     List<Blog> listRecommendBlogTop(Integer size);
+
+    /**
+     * 建立年份与博客集合之间的映射
+     * @return
+     */
+    Map<String, List<Blog>> archiveBlog();
+
+    Long countBlog();
 
     Blog saveBlog(Blog blog);
 
